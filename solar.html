@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ AUTONOMOUS SOLAR ORBIT TRACKER // JUMANNE VEO ⚡</title>
+    
+    <!-- GLOBAL FONT AWESOME ICONS CDN KWA AJILI YA ICON ZA SENSOR NA JUA -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <!-- MABORESHO: Vuta urembo mzima kutoka kwenye faili la nje la style.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- KITUFE CHA MENUBARS KWA AJILI YA SIMU NDOGO -->
+    <button id="toggle-sidebar-bars">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="app-wrapper">
+
+        <!-- ================================================================= -->
+        <!-- SIDEBAR YA KUSHOTO: WASIFU WA  MVUMBUZI (ASTRONOMICAL ISOLATION CORE) -->
+        <!-- ================================================================= -->
+        <aside class="sidebar-profile">
+            <!-- SEHEMU YA JUU: IMEGANDISHWA JUU (FIXED HEADER) -->
+            <div class="profile-header">
+                <div class="avatar-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h2>JUMANNE VEO</h2>
+                <span class="title-tag">Astronomical & Systems Architect</span>
+            </div>
+
+            <!-- CHUMBA MAALUM CHA KUSCROLL (INDEPENDENT SIDEBAR SCROLL BOX) -->
+            <div class="sidebar-scroll-box" style="flex: 1; overflow-y: auto; overflow-x: hidden; padding-right: 5px; -webkit-overflow-scrolling: touch;">
+                
+                <!-- SUMMARY SECTION -->
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-address-card"></i> Profile Summary</h4>
+                    <p class="info-p" style="text-align: justify; letter-spacing: 0.5px;">
+                        Mhandisi wa mifumo ya ndani ya JavaScript (Low-Level Systems Developer). Ninasumbua katika ujenzi wa mitambo inayorun 100% Offline kwa kutumia sensorer za dira ya sumaku kupitia milinganyo ngumu ya kijiografia (Astronomical Algorithms).
+                    </p>
+                </div>
+
+                <!-- OPERATIONAL SECTOR -->
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-earth-africa"></i> Operational Base</h4>
+                    <p class="info-p">HQ Registry: <span>Mbozi, Tanzania</span></p>
+                    <p class="info-p">Systems: <span>100% Autonomous Hardware Mesh</span></p>
+                </div>
+
+                <!-- TECHNICAL CORE ARCHITECTURE -->
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-layer-group"></i> Technical Core</h4>
+                    <p class="info-p">Hardware Tools: <span>DeviceOrientation API, Magnetometer Vectors, HTML5 Spatial Canvas</span></p>
+                    <p class="info-p">Astro Calculus: <span>Solar Azimuth & Elevation, Keplerian Orbit Mechanics</span></p>
+                </div>
+
+                <!-- PORTFOLIO LOGS SECTION: ORODHA YA MIRADI YOTE MITANO -->
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-folder-open"></i> Project Portfolio</h4>
+                    
+                    <!-- MRADI WA 1 -->
+                    <div class="project-item">
+                        <strong style="color: var(--neon-cyan); font-size: 11px;">⚡ 1. BONGO VEO ENGINE (v14)</strong><br>
+                        <span style="display:block; margin-bottom: 6px; font-size: 11px; color:#cbd5e1;">Mtambo wa kunyonya pixel na frequency za video za `.mp4` na kuzihifadhi Offline ndani ya IndexedDB kisha kuzifufua kwa 30FPS Canvas Matrix loop.</span>
+                        <a href="video_veo.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <!-- MRADI WA 2 -->
+                    <div class="project-item">
+                        <strong style="color: var(--neon-green); font-size: 11px;">⚡ 2. MEDICAL DOPPLER RADAR (v15)</strong><br>
+                        <span style="display:block; margin-bottom: 6px; font-size: 11px; color:#cbd5e1;">Uvumbuzi unaofyatua wimbi la siri la 19.5kHz (Ultrasound) kupitia spika na kupiga Doppler Shift Formula kukupa joto halisi la mwili 100% Offline.</span>
+                        <a href="mkombozi.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <!-- MRADI WA 3 -->
+                    <div class="project-item">
+                        <strong style="color: var(--neon-amber); font-size: 11px;">⚡ 3. TACTICAL BAROMETRIC RADAR (v16)</strong><br>
+                        <span style="display:block; margin-bottom: 6px; font-size: 11px; color:#cbd5e1;">Inaingia ndani ya sensorer ya presha ya simu kupitia Barometer API na kupiga Hypsometric Equation kujua Altitude (mwinuko) na kutabiri dhoruba mtaani.</span>
+                        <a href="weather.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <!-- MRADI WA 4 -->
+                    <div class="project-item">
+                        <strong style="color: var(--neon-storm); font-size: 11px;">⚡ 4. STRUCTURAL PULSE RADAR (v17)</strong><br>
+                        <span style="display:block; margin-bottom: 6px; font-size: 11px; color:#cbd5e1;">Mtambo unaovuta sensor ya mwendo (Accelerometer API) kupiga formula ya Peak Ground Acceleration (PGA) na kuchora mitetemo ya kuta na ghorofa kwa 60FPS.</span>
+                        <a href="mtetemo.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <!-- MRADI WA 5 -->
+                    <div class="project-item">
+                        <strong style="color: #a855f7; font-size: 11px;">⚡ 5. ACOUSTIC MATERIAL RADAR (v18)</strong><br>
+                        <span style="display:block; margin-bottom: 6px; font-size: 11px; color:#cbd5e1;">Kigunduzi cha vyuma kinacholpua mlio wa 120Hz Sound Pulse Burst na kusikiliza mwanguko wake (Echo Decay Vector) kutambua kama kitu ni bati, ukuta au plastiki.</span>
+                        <a href="vyuma.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+                </div>
+
+                <!-- SECURE NETWORK GATEWAY -->
+                <div class="info-section" style="margin-bottom: 0;">
+                    <h4><i class="fa-solid fa-circle-nodes"></i> Secure Gateway</h4>
+                    <p class="info-p"><i class="fa-solid fa-phone" style="color: var(--neon-green);"></i> Hotline: <span>+225697782255</span></p>
+                </div>
+
+            </div> <!-- AFUNGA: sidebar-scroll-box -->
+        </aside>
+
+
+        <!-- ================================================================= -->
+        <!-- UPANDE WA KATIKATI: THE SOLAR ORBIT RADAR INTERFACE -->
+        <!-- ================================================================= -->
+        <main class="main-workspace">
+            <div class="solar-container">
+                <h1>⚡ AUTONOMOUS SOLAR ORBIT TRACKER ⚡</h1>
+                <p class="suite-tag">Agricultural Solar Optimization // Keplerian Vector Protocol</p>
+                
+                <div class="grid solar-grid">
+                    <!-- MONITOR KUSHOTO: SPATIAL CANVAS INTERFACE -->
+                    <div class="monitor-box">
+                        <h3 style="color: var(--neon-amber);"><i class="fa-solid fa-compass"></i> LIVE COMPASS & SOLAR SKYSIGN (60FPS)</h3>
+                        <canvas id="solarCanvas"></canvas>
+                    </div>
+                    
+                    <!-- MONITOR KULIA: NUMERICAL CALCULATION PANEL -->
+                    <div class="monitor-box" style="border-color: rgba(56, 189, 248, 0.2);">
+                        <h3 style="color: var(--neon-cyan);"><i class="fa-solid fa-sun"></i> SOLAR VECTOR DETAILS</h3>
+                        <div class="gauge-display-center">
+                            <div id="badgeSolarStatus" class="solar-status-badge">STANDBY MODE</div>
+                            <div id="txtAzimuthValue" class="huge-number">000.0° AZ</div>
+                            <div id="txtElevationValue" class="elevation-sub-text"><i class="fa-solid fa-sun-plant-wilt"></i> Sun Elevation: 0.00°</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-solar-trigger" id="btnStartSolarRadar">
+                    <i class="fa-solid fa-circle-nodes"></i> AMRE: WASHA DIAL COMPASS (ENGAGE MAGNETOMETER)
+                </button>
+
+                <div class="terminal-panel">
+                    <div class="terminal-title"><i class="fa-solid fa-terminal"></i> Astronomical Compute Logs // Declination Index</div>
+                    <div class="terminal-box" id="solarTerminalBox">[System] Mtambo wa siri wa anga umewaka Offline... Ready.</div>
+                </div>
+
+                <!-- 🛡️ KINGA YA KISHERIA: Lebo ya ulinzi wa mashamba -->
+                <div class="astronomical-disclaimer-box">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: var(--neon-storm);"></i> 
+                    <strong>TAHADHARI YA KISHERIA (ASTRONOMICAL DISCLAIMER):</strong> Mfumo huu ni wa kielelezo na majaribio ya hisabati ya anga (Solar Orbit Simulator Model). Usitumiwe badala ya dira rasmi za ndege au meli bila usaidizi wa vifaa vya GPS vya satelaiti. Make sure to double-check the physical label to confirm this information.
+                </div>
+
+                <div class="hardware-stats">
+                    <div>📡 TIMELINE REGISTER: <span style="color: var(--neon-cyan);">7 September 2026</span></div>
+                    <div>🧮 COMPUTE ENGINE: <span id="lblSolarTrend" style="color: #fff;">STABLE HORIZON</span></div>
+                    <div>⚡ HARDWARE SENSOR: <span style="color: var(--neon-green);">DeviceOrientation API</span></div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Vuta kodi zote za ubongo wa kifizikia kutoka kwenye solar_radar.js -->
+    <script src="solar_radar.js"></script>
+</body>
+</html>

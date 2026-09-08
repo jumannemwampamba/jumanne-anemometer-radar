@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ TACTICAL BAROMETRIC & STORM RADAR // JUMANNE VEO ⚡</title>
+    
+    <!-- GLOBAL FONT AWESOME ICONS CDN KWA AJILI YA ICON ZA HALI YA HEWA NA SENSOR -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css"
+</head>
+<body>
+<body>
+
+    <!-- KITUFE CHA KIJANJA CHA DHAHABU CHA KUFUNGUA SIDEBAR KWENYE SIMU (BARS ENGINE) -->
+    <button id="toggle-sidebar-bars" style="position: fixed; top: 15px; left: 15px; z-index: 100; background: var(--radar-box); border: 1px solid var(--neon-cyan); color: var(--neon-cyan); width: 45px; height: 40px; border-radius: 8px; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    
+    <!-- ================================================================= -->
+    <!-- CORE ARCHITECTURE: EXPERT INVENTOR PROFILE SIDEBAR (RE-INDEXED)   -->
+    <!-- ================================================================= -->
+    <aside class="sidebar-profile" style="width: 340px; height: 100vh; display: flex; flex-direction: column; overflow: hidden; background-color: var(--sidebar-bg); border-right: 2px solid var(--neon-cyan); padding: 25px 20px; box-sizing: border-box; position: sticky; top: 0; left: 0; z-index: 10;">
+        
+        <!-- 1. IDENTIFICATION LAYER (IMEGANDISHWA JUU - FIXED) -->
+        <div class="profile-header" style="text-align: center; border-bottom: 1px dashed var(--glass-border); padding-bottom: 20px; margin-bottom: 20px; flex-shrink: 0;">
+            <div class="avatar-icon" style="font-size: 50px; color: var(--neon-cyan); text-shadow: 0 0 15px var(--neon-cyan); margin-bottom: 10px;"><i class="fa-solid fa-user-shield"></i></div>
+            <h2 style="margin: 0; font-size: 20px; color: #fff; text-shadow: 0 0 10px var(--neon-cyan);">JUMANNE VEO</h2>
+            <span class="title-tag" style="font-size: 11px; color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; display: block;">Autonomous Systems & Signal Engineer</span>
+        </div>
+
+        <!-- CHUMBA MAALUM CHA KUSCROLL CHINI KINYAMWEZI (INDEPENDENT SCROLL BOX) -->
+        <div class="sidebar-scroll-box" style="flex: 1; overflow-y: auto; overflow-x: hidden; padding-right: 5px; -webkit-overflow-scrolling: touch;">
+            
+            <!-- 2. EXECUTIVE SUMMARY -->
+            <div class="info-section" style="margin-bottom: 20px; text-align: left;">
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--neon-amber); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(250, 204, 21, 0.2); padding-bottom: 4px;"><i class="fa-solid fa-address-card"></i> Profile Summary</h4>
+                <p class="info-p" style="text-align: justify; letter-spacing: 0.5px; font-size: 12px; line-height: 1.5; color: #cbd5e1; margin: 0;">
+                    Mhandisi wa kujitegemea wa mifumo ya ndani ya kompyuta (Core Systems Developer). Ninasumbua katika ujenzi wa mitambo inayorun 100% Offline kwa kutumia fizikia ya maunzi ya simu (Hardware Sensor Arrays) kupitia mzunguko wa algorithms ngumu za kihesabu (Deterministic Equations).
+                </p>
+            </div>
+
+            <!-- 3. GEOGRAPHICAL DISPATCH -->
+            <div class="info-section" style="margin-bottom: 20px; text-align: left;">
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--neon-amber); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(250, 204, 21, 0.2); padding-bottom: 4px;"><i class="fa-solid fa-earth-africa"></i> Operational Base</h4>
+                <p class="info-p" style="margin: 0 0 8px 0; font-size: 12px; color: #cbd5e1;">HQ Registry: <span style="color: var(--neon-cyan); font-weight: bold;">Mbozi, Tanzania</span></p>
+                <p class="info-p" style="margin: 0; font-size: 12px; color: #cbd5e1;">Network Nodes: <span style="color: var(--neon-cyan); font-weight: bold;">100% Peer-to-Peer Mesh (No Internet)</span></p>
+            </div>
+
+            <!-- 4. CORE TECH STACK -->
+            <div class="info-section" style="margin-bottom: 20px; text-align: left;">
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--neon-amber); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(250, 204, 21, 0.2); padding-bottom: 4px;"><i class="fa-solid fa-layer-group"></i> Technical Core</h4>
+                <p class="info-p" style="margin: 0 0 8px 0; font-size: 12px; color: #cbd5e1;">Signal Math: <span style="color: var(--neon-cyan); font-weight: bold;">Fast Fourier Transform (FFT), Doppler Shift</span></p>
+                <p class="info-p" style="margin: 0 0 8px 0; font-size: 12px; color: #cbd5e1;">Browser APIs: <span style="color: var(--neon-cyan); font-weight: bold;">Web Audio API, Barometer API, WebNFC, IndexedDB</span></p>
+                <p class="info-p" style="margin: 0; font-size: 12px; color: #cbd5e1;">Graphics: <span style="color: var(--neon-cyan); font-weight: bold;">60FPS HTML5 Canvas Data Rasterization</span></p>
+            </div>
+
+            <!-- 5. HISTORIA YA MIRADI YA CHUMA (PRODUCTION DEPLOYMENTS) -->
+            <div class="info-section" style="margin-bottom: 20px; text-align: left;">
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--neon-amber); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(250, 204, 21, 0.2); padding-bottom: 4px;"><i class="fa-solid fa-diagram-project"></i> Project Portfolio</h4>
+                
+                <!-- KADI YA 1 -->
+                <div class="project-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 6px; padding: 8px 10px; font-size: 11px; margin-bottom: 8px; line-height: 1.4; text-align: left;">
+                    <strong style="color: var(--neon-cyan); font-size: 11px;">⚡ 1. MEDICAL DOPPLER RADAR (v14)</strong><br>
+                    <span style="color: #cbd5e1; display: block; margin-bottom: 6px;">Uvumbuzi unaofyatua mawimbi ya siri ya 19.5kHz kupitia spika na kupiga hesabu ya mabadiliko ya msongamano wa hewa mwilini ili kutoa joto la mwili kielelezo cha kifizikia.</span>
+                    <a href="mkombozi.html" class="btn-portfolio-link" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--neon-cyan); padding: 3px 6px; font-size: 9px; font-weight: bold; border-radius: 4px; text-decoration: none; margin-top: 4px; transition: all 0.2s;">ANGALIA SASA 📋</a>
+                </div>
+
+                <!-- KADI YA 2 -->
+                <div class="project-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 6px; padding: 8px 10px; font-size: 11px; margin-bottom: 8px; line-height: 1.4; text-align: left;">
+                    <strong style="color: var(--neon-amber); font-size: 11px;">⚡ 2. TACTICAL BAROMETRIC RADAR (v15)</strong><br>
+                    <span style="color: #cbd5e1; display: block; margin-bottom: 6px;">Mtambo unaoingia ndani ya sensorer ya presha ya simu na kupiga hesabu ya Hypsometric Formula kujua Altitude ya mwinuko na kutabiri dhoruba/mvua live 100% Offline.</span>
+                    <a href="weather.html" class="btn-portfolio-link" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(250, 204, 21, 0.08); border: 1px solid rgba(250, 204, 21, 0.3); color: var(--neon-amber); padding: 3px 6px; font-size: 9px; font-weight: bold; border-radius: 4px; text-decoration: none; margin-top: 4px; transition: all 0.2s;">ANGALIA SASA 📋</a>
+                </div>
+
+                <!-- KADI YA 3 -->
+                <div class="project-item" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 6px; padding: 8px 10px; font-size: 11px; margin-bottom: 8px; line-height: 1.4; text-align: left;">
+                    <strong style="color: var(--neon-green); font-size: 11px;">⚡ 3. MATRIX TEXT DECODER (v16)</strong><br>
+                    <span style="color: #cbd5e1; display: block; margin-bottom: 6px;">Algorithm inayofunga na kubana data za picha na masafa ya sauti kuwa kamba fupi ya herufi za kawaida za andiko la SMS ili kusafiri salama mtaani.</span>
+                    <a href="Ai.js" class="btn-portfolio-link" style="display: inline-flex; align-items: center; gap: 4px; background: rgba(0, 255, 102, 0.08); border: 1px solid rgba(0, 255, 102, 0.3); color: var(--neon-green); padding: 3px 6px; font-size: 9px; font-weight: bold; border-radius: 4px; text-decoration: none; margin-top: 4px; transition: all 0.2s;">ANGALIA SASA 📋</a>
+                </div>
+            </div>
+
+            <!-- 6. SECURE GATEWAY (CONTACT INQUIRIES) -->
+            <div class="info-section" style="margin-bottom: 0; text-align: left;">
+                <h4 style="margin: 0 0 10px 0; font-size: 13px; color: var(--neon-amber); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(250, 204, 21, 0.2); padding-bottom: 4px;"><i class="fa-solid fa-circle-nodes"></i> Secure Gateway</h4>
+                <p class="info-p" style="margin: 0 0 8px 0; font-size: 12px; color: #cbd5e1;"><i class="fa-solid fa-phone" style="color: var(--neon-green);"></i> Hotline: <span style="color: var(--neon-cyan); font-weight: bold;">+255697782255</span></p>
+                <p class="info-p" style="margin: 0 0 8px 0; font-size: 12px; color: #cbd5e1;"><i class="fa-solid fa-envelope" style="color: var(--neon-cyan);"></i> Encrypted: <span style="color: var(--neon-cyan); font-weight: bold;"></span></p>
+                <p class="info-p" style="margin: 0; font-size: 12px; color: #cbd5e1;"><i class="fa-solid fa-terminal" style="color: var(--neon-amber);"></i> Localhost: <span style="color: var(--neon-cyan); font-weight: bold;">7700/weat</span></p>
+            </div>
+        </div>
+    </aside>
+
+    <div class="weather-container">
+        <h1>⚡ TACTICAL BAROMETRIC & STORM RADAR ⚡</h1>
+        <div class="subtitle">Kifaa cha kijeshi cha kutabiri dhoruba na kupima mwinuko kwa kutumia sensorer ya presha ya hewa 100% Offline</div>
+        
+        <div class="grid weather-grid">
+            <!-- 1. KUSHOTO: LIVE PRESSURE WAVEFORM GRAPH CANVAS -->
+            <div class="monitor-box">
+                <h3 style="color: var(--neon-cyan);"><i class="fa-solid fa-chart-line"></i> BAROMETRIC PRESSURE TREND (60FPS)</h3>
+                <canvas id="weatherCanvas"></canvas>
+            </div>
+            
+            <!-- 2. KULIA: THE NUMERICAL STATUS INDICATOR GAUGE -->
+            <div class="monitor-box" style="border-color: rgba(250, 204, 21, 0.2);">
+                <h3 style="color: var(--neon-amber);"><i class="fa-solid fa-gauge-high"></i> ATMOSPHERIC VECTOR COMPUTATION</h3>
+                <div class="gauge-display-center">
+                    <div id="badgeStormStatus" class="storm-status-badge">STANDBY MODE</div>
+                    <div id="txtPressureValue" class="huge-number">0000.0 hPa</div>
+                    <div id="txtAltitudeValue" class="altitude-sub-text"><i class="fa-solid fa-mountain"></i> Est. Altitude: 0.00 m</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KITUFE KIKUBWA CHA DHAHABU CHA ACTIVE INTENT GESTURE SWITCH -->
+        <button class="btn-radar-trigger" id="btnStartWeatherRadar">
+            <i class="fa-solid fa-satellite-dish"></i> AMRE: WASHA BAROMETRIC RADAR (ENGAGE SENSOR)
+        </button>
+
+        <!-- TERMINAL PIPELINE LOGS COMPONENT -->
+        <div class="terminal-panel">
+            <div class="terminal-title"><i class="fa-solid fa-terminal"></i> Barometric Compute Pipeline logs // Barometric Tendency</div>
+            <div class="terminal-box" id="weatherTerminalBox">[System] Mtambo umewaka salama Offline... Kusubiri kidole cha kiongozi.</div>
+        </div>
+
+        <!-- PANEL YA TAKWIMU ZA HARDWARE CHUMA -->
+        <div class="hardware-stats">
+            <div>📡 LOCAL AIR VECTOR: <span id="lblPressureTrend" style="color: var(--neon-amber);">STABLE STATE</span></div>
+            <div>🧮 COMPUTE RATE: <span id="lblComputeRate" style="color: #fff;">0.00 hPa/sec</span></div>
+            <div>⚡ HARDWARE SENSOR: <span style="color: var(--neon-green);">Generic Barometer API</span></div>
+        </div>
+    </div>
+
+    <!-- Tutaunganisha ubongo mzima wa fizikia ya hali ya hewa kwenye faili la nje la weather_radar.js -->
+    <script src="app.js"></script>
+</body>
+</html>

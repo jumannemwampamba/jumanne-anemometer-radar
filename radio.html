@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ RADIO-ACOUSTIC MESH TOKEN DECODER // JUMANNE VEO ⚡</title>
+    
+    <!-- GLOBAL FONT AWESOME ICONS CDN KWA AJILI YA ICON ZA SENSOR NA REDIO -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <!-- Vuta urembo mzima kutoka kwenye faili la nje la style_radio.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- KITUFE CHA MENUBARS KWA AJILI YA SIMU NDOGO -->
+    <button id="toggle-sidebar-bars">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="app-wrapper">
+
+        <!-- ================================================================= -->
+        <!-- SIDEBAR YA KUSHOTO: WASIFU WA MVUMBUZI (RADIO-ACOUSTIC MESH CV) -->
+        <!-- ================================================================= -->
+        <aside class="sidebar-profile">
+            <div class="profile-header">
+                <div class="avatar-icon"><i class="fa-solid fa-tower-cell"></i></div>
+                <h2>JUMANNE VEO</h2>
+                <span class="title-tag">Acoustic Signal & Cryptographic Architect</span>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-address-card"></i> Profile Summary</h4>
+                    <p class="info-p" style="text-align: justify; letter-spacing: 0.5px;">
+                        Mhandisi wa mifumo ya ndani ya JavaScript (Low-Level Developer). Ninasumbua katika ujenzi wa mitambo inayorun 100% Offline kwa kutumia microphone ya simu kufanya decryption ya data zilizofichwa ndani ya masafa ya sauti ya redio.
+                    </p>
+                </div>
+
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-earth-africa"></i> Operational Base</h4>
+                    <p class="info-p">HQ Registry: <span>Mbozi, Tanzania</span></p>
+                    <p class="info-p">Mesh Protocol: <span>100% Standalone Offline Nodes</span></p>
+                </div>
+
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-layer-group"></i> Technical Core</h4>
+                    <p class="info-p">Hardware Tools: <span>Web Audio API Analyser, Fast Fourier Transform (FFT) Data Stream</span></p>
+                    <p class="info-p">Crypto Engine: <span>Sub-carrier Acoustic Watermarking, Frequency Modulation Keys</span></p>
+                </div>
+
+                <div class="info-section">
+                    <h4><i class="fa-solid fa-diagram-project"></i> Past Deployments</h4>
+                    
+                    <div class="project-item">
+                        <strong style="color: var(--neon-cyan); font-size: 11px;">1. Medical Doppler Radar</strong><br>
+                        <a href="joto.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+                    
+                    <div class="project-item">
+                        <strong style="color: var(--neon-green); font-size: 11px;">2. Tactical Barometric Radar</strong><br>
+                        <a href="weather.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong style="color: var(--neon-amber); font-size: 11px;">3. Structural Pulse Radar</strong><br>
+                        <a href="weather.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong style="color: #a855f7; font-size: 11px;">4. Acoustic Material Radar</strong><br>
+                        <a href="weather.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+
+                    <div class="project-item">
+                        <strong style="color: #facc15; font-size: 11px;">5. Autonomous Solar Tracker</strong><br>
+                        <a href="weather.html" class="btn-portfolio-link">ANGALIA SASA 📋</a>
+                    </div>
+                </div>
+
+                <div class="info-section" style="margin-bottom: 0;">
+                    <h4><i class="fa-solid fa-circle-nodes"></i> Secure Gateway</h4>
+                    <p class="info-p"><i class="fa-solid fa-phone" style="color: var(--neon-green);"></i> Hotline: <span>+255 697782255</span></p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ================================================================= -->
+        <!-- UPANDE WA KATIKATI: THE ACOUSTIC RADIO MESH DECODER INTERFACE -->
+        <!-- ================================================================= -->
+        <main class="main-workspace">
+            <div class="radio-container">
+                <h1>⚡ RADIO-ACOUSTIC MESH TOKEN DECODER ⚡</h1>
+                <p class="suite-tag">Sub-Carrier Acoustic Validation // Frequency Data Embedding Protocol</p>
+                
+                <div class="grid radio-grid">
+                    <!-- MONITOR KUSHOTO: FREQUENCY SPECTROGRAM -->
+                    <div class="monitor-box">
+                        <h3 style="color: var(--neon-green);"><i class="fa-solid fa-wave-square"></i> AUDIO SUB-CARRIER DECODER SPECTRUM</h3>
+                        <canvas id="radioCanvas"></canvas>
+                    </div>
+                    
+                    <!-- MONITOR KULIA: CRYPTOGRAPHIC DECRYPTION DISPLAY -->
+                    <div class="monitor-box" style="border-color: rgba(56, 189, 248, 0.2);">
+                        <h3 style="color: var(--neon-cyan);"><i class="fa-solid fa-key"></i> CRYPTOGRAPHIC DECRYPTION</h3>
+                        <div class="gauge-display-center">
+                            <div id="badgeRadioStatus" class="radio-status-badge">LISTENING FOR RADIO SIGNAL 📻</div>
+                            <div id="txtRadioToken" class="huge-number">0000-KEY</div>
+                            <div id="txtDecryptedMessage" style="font-size: 13px; color: var(--neon-amber); font-weight: bold;"><i class="fa-solid fa-ticket"></i> Output: WAITING FOR AUDIO EMBED...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-radio-trigger" id="btnStartRadioRadar">
+                    <i class="fa-solid fa-microphone-lines"></i> AMRE: WASHA MIC KUDAKA TOKEN (ENGAGE MESH DECODER)
+                </button>
+
+                <div class="terminal-panel">
+                    <div class="terminal-title"><i class="fa-solid fa-terminal"></i> Cryptographic Pipeline logs // Fast Fourier Transform</div>
+                    <div class="terminal-box" id="radioTerminalBox">[System] Mtambo wa siri wa kudaka risiti kwenye mziki umewaka salama... Ready.</div>
+                </div>
+
+                <!-- 🛡️ KINGA YA KISHERIA LEBO -->
+                <div class="radio-disclaimer-box">
+                    <i class="fa-solid fa-triangle-exclamation" style="color: var(--neon-storm);"></i> 
+                    <strong>TAHADHARI YA KISHERIA (ACOUSTIC DISCLAIMER):</strong> Mfumo huu ni wa kielelezo na majaribio ya kifizikia ya kusoma siri ndani ya sauti (Acoustic Watermarking Simulator). Usitumiwe kama mfumo rasmi wa kutoa tiketi za malipo ya mashirika bila idhini ya kisheria. Make sure to double-check the physical label to confirm this information.
+                </div>
+
+                <div class="hardware-stats">
+                    <div>📡 SAMPLING VECTOR: <span style="color: var(--neon-amber);">2048 FFT Buffer</span></div>
+                    <div>🧮 DECRYPTION STATE: <span id="lblRadioTrend" style="color: #fff;">IDLE STREAM</span></div>
+                    <div>⚡ HARDWARE SENSOR: <span style="color: var(--neon-green);">Web Audio API v2</span></div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Tutaunganisha ubongo mzima wa spika kwenye faili la nje la radio_radar.js -->
+    <script src="radio_radar.js"></script>
+</body>
+</html>

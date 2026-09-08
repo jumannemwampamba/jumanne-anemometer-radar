@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BongoAI - Veo Video Engine 📹</title>
+    
+    <!-- 1. ICON ZA SIRI ZA FONT AWESOME GLOBAL CDN (TUMESHAWEKA MKUU!) -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    
+    <!-- Tutaunganisha na muundo wa zamani wa rangi ili kila kitu kifanane -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+
+</head>
+<body>
+
+    <!-- MTAMBO MKUBWA WA APP OVERVIEW WRAPPER -->
+    <div class="app-wrapper">
+
+        <!-- ================================================================= -->
+        <!-- UPANDE WA KUSHOTO: SIDEBAR YA VEO VIDEO SEEDING (KNOWLEDGE ROOM) -->
+        <!-- ================================================================= -->
+        <aside class="sidebar-left" id="sidebar-l">
+            <div class="sidebar-header">
+                <h2><i class="fa-solid fa-clapperboard"></i> VEO Engine 👑</h2>
+            </div>
+
+            <!-- MTAMBO WA NAVIGATION MULTIPAGE LINK -->
+            <div class="sidebar-menu-toggle" style="display: flex; gap: 5px; margin-bottom: 15px; width: 100%;">
+                <!-- Hii inamrudisha mtumiaji nyuma kwenda kwenye barua na chat ya maneno -->
+                <a href="Ai.html" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; font-weight: bold; font-size: 11px; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center;">Knowledge Base 🧠</a>
+                
+                <!-- Hiki kifungo kipo active hapa kwa sababu tupo ukurasa wa video -->
+                <button style="flex: 1; padding: 8px; background: var(--accent); color: #0b1329; border: none; border-radius: 6px; font-weight: bold; font-size: 11px; cursor: pointer;">Text to Video 📹</button>
+            </div>
+
+            <div class="sidebar-scroller" style="flex: 1; overflow-y: auto; padding-right: 2px;">
+                <div class="seeding-card">
+                    <h3 style="color: var(--accent); font-size: 13px; margin-bottom: 10px;"><i class="fa-solid fa-cloud-arrow-up"></i> LISHA VIDEO ZA VEO</h3>
+                    
+                    <!-- Uwanja wa kuandika ufunguo wa video ya VEO -->
+                    <input type="text" id="video-swali-input" placeholder="Andika Ufunguo... (Mfano: video ya kuku)" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.4); border: 1px solid #475569; color: #fff; border-radius: 8px; font-size: 13px; outline: none; font-family: inherit; box-sizing: border-box; margin-bottom: 10px;">
+                    
+                    <!-- Kitufe cha siri cha kuvuta video kutoka simuni -->
+                    <label for="video-file-uploader" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; background: rgba(56, 189, 248, 0.05); border: 1px dashed var(--accent); color: var(--accent); border-radius: 8px; font-size: 12px; cursor: pointer; font-weight: bold; box-sizing: border-box; margin-bottom: 8px;">
+                        <i class="fa-solid fa-video"></i> Pakia Video ya VEO hapa
+                    </label>
+                    <input type="file" id="video-file-uploader" accept="video/*" style="display: none;">
+                    
+                    <span id="lbl-video-jina-safi" style="font-size: 11px; color: #94a3b8; font-style: italic; display: block; text-align: center; margin-bottom: 15px;">Hakuna video iliyochaguliwa bado...</span>
+
+                    <button id="btn-feed-video" style="width: 100%; padding: 10px; background: var(--accent); color: #0b1329; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 13px;">Kariri Video 📹</button>
+                </div>
+
+                <!-- MTAMBO WA SYSTEM STATUS LOGS YA VEO -->
+                <div class="status-card" style="margin-top: 15px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <h4 style="font-size: 11px; color: #64748b; text-transform: uppercase; margin-top: 0; margin-bottom: 5px;"><i class="fa-solid fa-terminal"></i> Veo Logs</h4>
+                    <div id="video-status-box" style="font-size: 11px; color: #4ade80; font-family: monospace; max-height: 120px; overflow-y: auto;">[Mfumo] Engine ya ghorofa ya pili ipo tayari...</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ================================================================= -->
+        <!-- UPANDE WA KATIKATI: MAIN CHAT SCREEN YA VEO ENGINE -->
+        <!-- ================================================================= -->
+        <main class="chat-main-space">
+            
+            <!-- HEADER YA JUU (NAV BAR) -->
+            <header class="top-nav-bar">
+                <button class="menu-bars-btn" id="toggle-left-menu"><i class="fa-solid fa-bars"></i></button>
+                <div class="ai-profile-title">
+                    <span class="ai-name">BONGO VEO AI</span>
+                    <span class="ai-status"><i class="fa-solid fa-circle" style="color: #4ade80; font-size: 8px;"></i> Video Core Offline</span>
+                </div>
+                <button class="new-chat-btn" id="btn-new-chat" title="New Video Project"><i class="fa-solid fa-rotate-right"></i></button>
+            </header>
+
+            <!-- CHUMBA CHENYEWE CHA MAONGEZI YA VIDEO (CHAT CONTAINER) -->
+            <div class="chat-messages-container" id="video-chat-messages-container">
+                <div id="veo-welcome-block" style="text-align: center; padding: 25px 15px; margin: auto; max-width: 90; display: flex; flex-direction: column; align-items: center;">
+                    <h1 style="color: var(--accent); font-size: 26px; margin-bottom: 8px; text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);"><i class="fa-solid fa-wand-magic-sparkles"></i> Mtambo wa Google VEO</h1>
+                    <p style="font-size: 16px; color: #94a3b8; margin-top: 0; line-height: 1.5; margin-bottom: 20px;">Lisha video upande wa kushoto, kisha andika ufunguo hapa chini ili AI ihesabu sekunde na kuchora nembo ya Jumanne Offline! 📹✨</p>
+                </div>
+            </div>
+
+            <!-- CHAT INPUT WRAPPER YA CHINI YA SKRINI ILYOBORESHWA -->
+            <div class="chat-input-area">
+                
+
+                <div class="input-wrapper">
+                    <button class="btn-plus-icon" title="Disabled mkuu"><i class="fa-solid fa-lock" style="font-size: 12px; color: #475569;"></i></button>
+                    <textarea id="video-product-input" placeholder="Andika hitaji la video..."></textarea>
+                    <button class="btn-mic-icon" title="Ongea na AI"><i class="fa-solid fa-microphone"></i></button>
+                    <button class="btn-send-circle" id="btn-generate-video-trigger"><i class="fa-solid fa-arrow-up"></i></button>
+                </div>
+            </div>
+
+    <!-- UTANGAZAJI WA SCRIPT: Hapa tutasuka faili jipya la nje la js la veo -->
+    <script src="app 1.js"></script>
+</body>
+</html>

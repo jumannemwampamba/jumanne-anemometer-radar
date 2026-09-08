@@ -1,0 +1,4332 @@
+/* =================================================================
+   CYBERPUNK AUDIO-MESH RADIO SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #01030a;
+    --radar-box: #050a14;
+    --sidebar-bg: #02040a;
+    --neon-green: #00ff66;
+    --neon-cyan: #38bdf8;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --glass-border: rgba(0, 255, 102, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    
+    /* SCROLL ISOLATION: Inaruhusu kuscroll wasifu na miradi 5 bila ukurasa mzima kusogea */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; 
+    
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-green);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-green);
+    text-shadow: 0 0 15px var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: MAIN WORKSPACE OVERVIEW
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.radio-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(0, 255, 102, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(0, 255, 102, 0.08);
+    box-sizing: border-box;
+}
+
+.radio-container h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 0 15px var(--neon-green);
+}
+
+.suite-tag {
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.radio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.monitor-box {
+    background: #000206;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+    background: #000103;
+    border: 1px solid rgba(0, 255, 102, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.02) 0%, rgba(0,0,0,0) 70%);
+}
+
+.huge-number {
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+    margin: 8px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.radio-status-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* AMRE BUTTON INTERACTION */
+.btn-radio-trigger {
+    background: var(--neon-green);
+    color: #01030a;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-radio-trigger:hover {
+    background: #00cc52;
+    box-shadow: 0 0 25px var(--neon-green);
+}
+
+/* TERMINAL PIPELINE */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-green);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* ACOUSTIC DISCLAIMER SYSTEM */
+.radio-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(0, 255, 102, 0.02);
+    border: 1px dashed var(--neon-green);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #bbf7d0;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* RESPONSIVE DESIGN & BARS SWITCH */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #02040a !important; border-right: 2px solid var(--neon-green);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .radio-grid { grid-template-columns: 1fr; }
+}
+/* =================================================================
+   CYBERPUNK SMART SOIL METEOROLOGY SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #020408;
+    --radar-box: #0b0f19;
+    --sidebar-bg: #04060f;
+    --neon-amber: #facc15;
+    --neon-green: #00ff66;
+    --neon-cyan: #38bdf8;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --glass-border: rgba(250, 204, 21, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-amber);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Header isinyanyuke wala kukunjika */
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-amber);
+    text-shadow: 0 0 15px var(--neon-amber);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-amber);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-amber);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE GEO-METEOROLOGICAL PANEL
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.soil-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(250, 204, 21, 0.08);
+    box-sizing: border-box;
+}
+
+.soil-container h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0;
+    text-shadow: 0 0 15px var(--neon-amber);
+}
+
+.suite-tag {
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.soil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.monitor-box {
+    background: #010206;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+    background: #000103;
+    border: 1px solid rgba(250, 204, 21, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.02) 0%, rgba(0,0,0,0) 70%);
+}
+
+.huge-number {
+    font-size: 54px;
+    font-weight: 900;
+    color: var(--neon-amber);
+    text-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+    margin: 8px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.soil-status-badge {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* AMRI BUTTON INTERACTION */
+.btn-soil-trigger {
+    background: var(--neon-amber);
+    color: #020408;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-soil-trigger:hover {
+    background: #cc9900;
+    box-shadow: 0 0 25px var(--neon-amber);
+}
+
+/* TERMINAL INTERFACE */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-amber);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-amber);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* DISCLAIMER PROTECTION CARD */
+.soil-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(250, 204, 21, 0.02);
+    border: 1px dashed var(--neon-amber);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fef08a;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* RESPONSIVE LAYOUT FOR MOBILE SCREENS */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-amber);
+    color: var(--neon-amber);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #04060f !important; border-right: 2px solid var(--neon-amber);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .soil-grid { grid-template-columns: 1fr; }
+}
+
+
+
+        /* =================================================================
+           CYBERPUNK NEON MEDICAL THEME SYSTEM - DEFINITIVE DESIGN
+           ================================================================= */
+        :root {
+            --bg-deep: #030611;
+            --radar-box: #081026;
+            --neon-green: #00ff66;
+            --neon-cyan: #38bdf8;
+            --neon-fever: #ff0055;
+            --neon-gold: #facc15;
+            --text-main: #f8fafc;
+            --text-muted: #475569;
+            --glass-border: rgba(0, 255, 102, 0.15);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* 1. MTAMBO MKUBWA WA MAIN APP SUITE WRAPPER */
+        .medical-container {
+            width: 100%;
+            max-width: 950px;
+            margin: 20px;
+            background: var(--radar-box);
+            border: 2px solid var(--neon-green);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.15);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #888;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =================================================================
+           PANDR PACHA: KUSHOTO NI RADAR CANVAS, KULIA NI TEMPERATE DISPLAY
+           ================================================================= */
+        .radar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .monitor-box {
+            background: #040817;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .monitor-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Kioo kikubwa cha mawimbi ya radar ya sauti */
+        canvas {
+            width: 100%;
+            height: 240px;
+            background: #01030a;
+            border: 1px solid rgba(0, 255, 102, 0.08);
+            border-radius: 8px;
+        }
+
+        /* Sanduku kubwa linalotapika namba za joto la kidijitali */
+        .temp-display-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle, rgba(0, 255, 102, 0.03) 0%, rgba(0,0,0,0) 70%);
+        }
+
+        .huge-number {
+            font-size: 76px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            margin: 10px 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .health-status-badge {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =================================================================
+           KITUFE KIKUBWA CHA AMRE NA TERMINAL LOGS
+           ================================================================= */
+        .btn-radar-trigger {
+            background: var(--neon-green);
+            color: #030611;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.2);
+        }
+
+        .btn-radar-trigger:hover {
+            background: #00cc52;
+            box-shadow: 0 0 25px var(--neon-green);
+            transform: translateY(-1px);
+        }
+
+        .btn-radar-trigger:active {
+            transform: translateY(1px);
+        }
+
+        /* Terminal Logs za mahesabu hatua kwa hatua */
+        .terminal-panel {
+            margin-top: 25px;
+            background: #010309;
+            border-left: 4px solid var(--neon-green);
+            border-radius: 4px;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .terminal-title {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .terminal-box {
+            height: 100px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: var(--neon-green);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Panel ya chini ya Takwimu halisi za vifaa vya simu */
+        .hardware-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+            font-size: 11px;
+            border-top: 1px dashed rgba(255,255,255,0.06);
+            padding-top: 15px;
+            text-align: left;
+        }
+
+        .hardware-stats div span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE LAYOUT KWA AJILI YA SIMU */
+        @media (max-width: 768px) {
+            .radar-grid { grid-template-columns: 1fr; gap: 20px; }
+            .huge-number { font-size: 60px; }
+            .hardware-stats { grid-template-columns: 1fr; gap: 8px; }
+            .medical-container { padding: 15px; }
+        }
+        
+                /* =================================================================
+           UPANDE WA KUSHOTO: SIDEBAR STYLE (INVENTOR PROFILE COMPONENT)
+           ================================================================= */
+        .sidebar-profile {
+            width: 340px;
+            height: 100%;
+            background-color: var(--sidebar-bg);
+            border-right: 2px solid var(--neon-green);
+            display: flex;
+            flex-direction: column;
+            padding: 25px 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .profile-header {
+            text-align: center;
+            border-bottom: 1px dashed var(--glass-border);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .avatar-icon {
+            font-size: 50px;
+            color: var(--neon-green);
+            text-shadow: 0 0 15px var(--neon-green);
+            margin-bottom: 10px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .profile-header .title-tag {
+            font-size: 11px;
+            color: var(--neon-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Kadi za studio ya wasifu */
+        .info-section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .info-section h4 {
+            margin: 0 0 10px 0;
+            font-size: 13px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 4px;
+        }
+
+        .info-p {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+
+        .info-p span {
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 6px;
+            padding: 8px 10px;
+            font-size: 11px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        /* =================================================================
+           UPANDE WA KATIKATI: MAIN WORKSPACE OVERVIEW
+           ================================================================= */
+        .main-workspace {
+            flex: 1;
+            height: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+        }
+
+        .medical-container {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            background: var(--radar-box);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.08);
+            box-sizing: border-box;
+        }
+
+        .radar-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .monitor-box {
+            background: #040817;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .monitor-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        canvas {
+            width: 100%;
+            height: 200px;
+            background: #01030a;
+            border: 1px solid rgba(0, 255, 102, 0.08);
+            border-radius: 8px;
+        }
+
+        .temp-display-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, rgba(0, 255, 102, 0.02) 0%, rgba(0,0,0,0) 70%);
+        }
+
+        .huge-number {
+            font-size: 64px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+            margin: 8px 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .health-status-badge {
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+        }
+
+        .btn-radar-trigger {
+            background: var(--neon-green);
+            color: #030611;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15);
+        }
+
+        .btn-radar-trigger:hover {
+            background: #00cc52;
+            box-shadow: 0 0 25px var(--neon-green);
+        }
+
+        .terminal-panel {
+            margin-top: 20px;
+            background: #010309;
+            border-left: 4px solid var(--neon-green);
+            border-radius: 4px;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        .terminal-title {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .terminal-box {
+            height: 80px;
+            overflow-y: auto;
+            font-size: 11px;
+            color: var(--neon-green);
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        /* 🛡️ TAHADHARI YA KISHERIA STYLE */
+        .medical-disclaimer-box {
+            margin-top: 15px;
+            background: rgba(255, 0, 85, 0.03);
+            border: 1px dashed var(--neon-fever);
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 10px;
+            color: #fca5a5;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .hardware-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 10px;
+            border-top: 1px dashed rgba(255,255,255,0.06);
+            padding-top: 12px;
+            text-align: left;
+        }
+
+        /* RESPONSIVE CONTROL FOR SMARTPHONES */
+        @media (max-width: 900px) {
+            .app-wrapper { flex-direction: column; overflow-y: auto; }
+            .sidebar-profile { width: 100%; height: auto; border-right: none; border-bottom: 2px solid var(--neon-green); padding: 15px; }
+            .main-workspace { padding: 15px; height: auto; }
+            .radar-grid { grid-template-columns: 1fr; }
+        }
+
+        /* MAREKEBISHO YA MAPINDUZI: Kitufe kionekane kwenye simu pekee */
+        @media (max-width: 900px) {
+            #toggle-sidebar-bars { display: flex !important; }
+            
+            .sidebar-profile {
+                position: fixed;
+                left: -340px; /* Ifiche sidebar upande wa kushoto wa kioo giza */
+                top: 0;
+                transition: left 0.3s ease-in-out;
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.8);
+            }
+            
+            /* Class maalum itakayofunguliwa na JavaScript kitalanta */
+            .sidebar-profile.fungua-bars {
+                left: 0 !important;
+            }
+            
+            .main-workspace { padding-top: 70px !important; }
+        }
+
+        /* =================================================================
+           RESPONSIVE REKREBISHO: SOLID ISOLATION BACKGROUND FOR MOBILE SENSORS
+           ================================================================= */
+        @media (max-width: 900px) {
+            #toggle-sidebar-bars { 
+                display: flex !important; 
+            }
+            
+            .sidebar-profile {
+                position: fixed;
+                left: -340px; /* Ifiche sidebar upande wa kushoto wa kioo giza */
+                top: 0;
+                width: 300px;
+                height: 100vh;
+                
+                /* USHINDI: Weka background ngumu na nzito kuzuia uwazi wa kioo cha nyuma! */
+                background-color: #050b1a !important; 
+                background-image: linear-gradient(145deg, #050b1a 0%, #020511 100%) !important;
+                
+                border-right: 2px solid var(--neon-green);
+                transition: left 0.3s ease-in-out;
+                box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+                padding: 30px 20px 20px 20px;
+            }
+            
+            /* Class maalum inayowashwa na JavaScript kitalanta */
+            .sidebar-profile.fungua-bars {
+                left: 0 !important;
+            }
+            
+            /* Kadi za miradi ya nyuma zionekane vizuri kwa muonekano mseto */
+            .project-item {
+                background: #081026 !important;
+                border: 1px solid rgba(0, 255, 102, 0.2) !important;
+            }
+            
+            .main-workspace { 
+                padding-top: 80px !important; 
+            }
+        }
+
+
+/* =================================================================
+   CYBERPUNK MEDICAL DOPPLER SUITE - INTERFACE ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #010307;
+    --radar-box: #050a14;
+    --sidebar-bg: #020409;
+    --neon-cyan: #38bdf8;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(56, 189, 248, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-cyan);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Header isigande wala kukunjika */
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 11px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 4px 8px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.btn-investor-call:hover {
+    background: var(--neon-green) !important;
+    color: #000 !important;
+    box-shadow: 0 0 12px var(--neon-green) !important;
+}
+
+/* =================================================================
+   AMRI KUU YA KUTELEZESHA SIDEBAR (OPEN/CLOSE MATRIX FOR MOBILE)
+   ================================================================= */
+@media (max-width: 900px) {
+    .sidebar-profile {
+        position: fixed !important;
+        left: -340px !important; /* Inajifunga kisheria isionekane */
+        top: 0;
+        transition: left 0.3s ease-in-out !important; /* Ulaini wa kuteleza */
+    }
+
+    /* AMRI YA JAVASCRIPT: Ikipata ishara ya kidole, inaivuta mbele ya macho */
+    .sidebar-profile.fungua-bars {
+        left: 0 !important; /* Inafunguka live instantly */
+    }
+}
+
+
+/* =================================================================
+   CYBERPUNK HYDRO-ACOUSTIC RADAR SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #010308;
+    --radar-box: #050914;
+    --sidebar-bg: #020409;
+    --neon-cyan: #2ea7df;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(46, 167, 223, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-cyan);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE MAIN WORKSPACE INTERFACE
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pipe-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(46, 167, 223, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(46, 167, 223, 0.08);
+    box-sizing: border-box;
+}
+
+.pipe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.monitor-box {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+    background: #000103;
+    border: 1px solid rgba(46, 167, 223, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(46, 167, 223, 0.02) 0%, rgba(0,0,0,0) 70%);
+}
+
+.huge-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 25px rgba(46, 167, 223, 0.4);
+    margin: 8px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.pipe-status-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(0, 255, 102, 0.05);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ACTIVE CONTROLLER TRIGGER BUTTON */
+.btn-pipe-trigger {
+    background: var(--neon-cyan);
+    color: #010308;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(46, 167, 223, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-pipe-trigger:hover {
+    background: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* COMPUTE PIPELINE TERMINAL LOGS */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-cyan);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-cyan);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* SYSTEM DISCLAIMER CARD */
+.pipe-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(255, 0, 85, 0.02);
+    border: 1px dashed var(--neon-storm);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fca5a5;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* MOBILE BARS RESPONSIVE OVERRIDES */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(46, 167, 223, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #020409 !important; border-right: 2px solid var(--neon-cyan);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .pipe-grid { grid-template-columns: 1fr !important; }
+}
+
+
+
+
+/* =================================================================
+   CYBERPUNK HEMODYNAMIC MONITOR SUITE - CSS ARCHITECTURE
+   ================================================================= */
+:root {
+    --bg-deep: #010206;
+    --radar-box: #060b18;
+    --sidebar-bg: #020409;
+    --neon-crimson: #ff0055;
+    --neon-cyan: #38bdf8;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(255, 0, 85, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-crimson);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-crimson);
+    text-shadow: 0 0 15px var(--neon-crimson);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-crimson);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-crimson);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE MAIN CLINICAL WORKSPACE
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hemo-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(255, 0, 85, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(255, 0, 85, 0.08);
+    box-sizing: border-box;
+}
+
+/* THE QUAD METRICS GRID LAYOUT */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.huge-metric {
+    font-size: 28px;
+    font-weight: 900;
+    margin: 4px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sub-status {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* TELEMETRY VISUAL MONITOR BOX */
+.monitor-box {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 180px;
+    background: #000103;
+    border: 1px solid rgba(255, 0, 85, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.huge-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--neon-crimson);
+    text-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+    margin: 8px 0;
+}
+
+.health-status-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(0, 255, 102, 0.05);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ACTIVE CONTROLLER TRIGGER BUTTON */
+.btn-hemo-trigger {
+    background: var(--neon-crimson);
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-hemo-trigger:hover {
+    background: #cc0044;
+    box-shadow: 0 0 25px var(--neon-crimson);
+}
+
+/* COMPUTE PIPELINE TERMINAL LOGS */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-crimson);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 75px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* MEDICAL SYSTEM DISCLAIMER CARD */
+.hemo-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(255, 0, 85, 0.02);
+    border: 1px dashed var(--neon-storm);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fca5a5;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* MOBILE BARS RESPONSIVE OVERRIDES */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-crimson);
+    color: var(--neon-crimson);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #020409 !important; border-right: 2px solid var(--neon-crimson);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+}
+
+/* =================================================================
+   CYBERPUNK AUDIO-MESH RADIO SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #01030a;
+    --radar-box: #050a14;
+    --sidebar-bg: #02040a;
+    --neon-green: #00ff66;
+    --neon-cyan: #38bdf8;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --glass-border: rgba(0, 255, 102, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    
+    /* SCROLL ISOLATION: Inaruhusu kuscroll wasifu na miradi 5 bila ukurasa mzima kusogea */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; 
+    
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-green);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-green);
+    text-shadow: 0 0 15px var(--neon-green);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: MAIN WORKSPACE OVERVIEW
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.radio-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(0, 255, 102, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(0, 255, 102, 0.08);
+    box-sizing: border-box;
+}
+
+.radio-container h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 0 15px var(--neon-green);
+}
+
+.suite-tag {
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.radio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.monitor-box {
+    background: #000206;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+    background: #000103;
+    border: 1px solid rgba(0, 255, 102, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(0, 255, 102, 0.02) 0%, rgba(0,0,0,0) 70%);
+}
+
+.huge-number {
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+    margin: 8px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.radio-status-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* AMRE BUTTON INTERACTION */
+.btn-radio-trigger {
+    background: var(--neon-green);
+    color: #01030a;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 102, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-radio-trigger:hover {
+    background: #00cc52;
+    box-shadow: 0 0 25px var(--neon-green);
+}
+
+/* TERMINAL PIPELINE */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-green);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* ACOUSTIC DISCLAIMER SYSTEM */
+.radio-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(0, 255, 102, 0.02);
+    border: 1px dashed var(--neon-green);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #bbf7d0;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* RESPONSIVE DESIGN & BARS SWITCH */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #02040a !important; border-right: 2px solid var(--neon-green);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .radio-grid { grid-template-columns: 1fr; }
+}
+
+
+
+/* =================================================================
+   CYBERPUNK SOLAR TACTICAL SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #02040a;
+    --radar-box: #0b0f19;
+    --sidebar-bg: #04060f;
+    --neon-amber: #facc15;
+    --neon-green: #00ff66;
+    --neon-cyan: #38bdf8;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --glass-border: rgba(250, 204, 21, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   SIDEBAR COMPONENT STYLE (ASTRONOMICAL PRO AREA)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100%;
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-amber);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-amber);
+    text-shadow: 0 0 15px var(--neon-amber);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-amber);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-amber);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   MAIN CORE WORKSPACE OVERVIEW
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.solar-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(250, 204, 21, 0.08);
+    box-sizing: border-box;
+}
+
+.solar-container h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 0 15px var(--neon-amber);
+}
+
+.suite-tag {
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.solar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.monitor-box {
+    background: #010206;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 200px;
+    background: #000103;
+    border: 1px solid rgba(250, 204, 21, 0.08);
+    border-radius: 8px;
+}
+
+.gauge-display-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.02) 0%, rgba(0,0,0,0) 70%);
+}
+
+.huge-number {
+    font-size: 50px;
+    font-weight: 900;
+    color: var(--neon-amber);
+    text-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+    margin: 8px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.elevation-sub-text {
+    font-size: 14px;
+    color: var(--neon-cyan);
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.solar-status-badge {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(0, 255, 102, 0.05);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* AMRI BUTTON INTERACTION */
+.btn-solar-trigger {
+    background: var(--neon-amber);
+    color: #020408;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-solar-trigger:hover {
+    background: #cc9900;
+    box-shadow: 0 0 25px var(--neon-amber);
+}
+
+/* TERMINAL INTERFACE */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-amber);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-amber);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* DISCLAIMER PROTECTION CARD */
+.astronomical-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(250, 204, 21, 0.02);
+    border: 1px dashed var(--neon-amber);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fef08a;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* RESPONSIVE DESIGN & HAMBURGER BAR MANAGEMENT */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-amber);
+    color: var(--neon-amber);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #04060f !important; border-right: 2px solid var(--neon-amber);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .solar-grid { grid-template-columns: 1fr; }
+}
+
+
+/* =================================================================
+   CYBERPUNK WEATHER TELEMETRY SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #010307;
+    --radar-box: #050a14;
+    --sidebar-bg: #020409;
+    --neon-cyan: #38bdf8;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(56, 189, 248, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-cyan);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE MAIN CLINICAL WORKSPACE
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wind-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.08);
+    box-sizing: border-box;
+}
+
+/* THE TWIN METRICS GRID */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.huge-metric {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 5px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sub-status {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* TELEMETRY VISUAL MONITOR BOX */
+.monitor-box {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 180px;
+    background: #000103;
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    border-radius: 8px;
+}
+
+/* ACTIVE CONTROLLER TRIGGER BUTTON */
+.btn-wind-trigger {
+    background: var(--neon-cyan);
+    color: #010307;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-wind-trigger:hover {
+    background: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* COMPUTE PIPELINE TERMINAL LOGS */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-cyan);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* METEOROLOGICAL DISCLAIMER CARD PROTECTION */
+.wind-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(255, 0, 85, 0.02);
+    border: 1px dashed var(--neon-storm);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fca5a5;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* MOBILE BARS RESPONSIVE OVERRIDES */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #020409 !important; border-right: 2px solid var(--neon-cyan);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .metrics-grid { grid-template-columns: 1fr !important; }
+}
+
+
+/* =================================================================
+   CYBERPUNK WEATHER TELEMETRY SUITE - ARCHITECTURE CSS
+   ================================================================= */
+:root {
+    --bg-deep: #010307;
+    --radar-box: #050a14;
+    --sidebar-bg: #020409;
+    --neon-cyan: #38bdf8;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(56, 189, 248, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Funga scroll ya bodi ya nje */
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-cyan);
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* BOX LA NDANI LINALOTELEZA (SCROLL CONTAINER) */
+.sidebar-scroll-box {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE MAIN CLINICAL WORKSPACE
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wind-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.08);
+    box-sizing: border-box;
+}
+
+/* THE TWIN METRICS GRID */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.metric-card {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.huge-metric {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 5px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sub-status {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* TELEMETRY VISUAL MONITOR BOX */
+.monitor-box {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 180px;
+    background: #000103;
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    border-radius: 8px;
+}
+
+/* ACTIVE CONTROLLER TRIGGER BUTTON */
+.btn-wind-trigger {
+    background: var(--neon-cyan);
+    color: #010307;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-wind-trigger:hover {
+    background: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* COMPUTE PIPELINE TERMINAL LOGS */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-cyan);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 80px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* METEOROLOGICAL DISCLAIMER CARD PROTECTION */
+.wind-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(255, 0, 85, 0.02);
+    border: 1px dashed var(--neon-storm);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fca5a5;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* MOBILE BARS RESPONSIVE OVERRIDES */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #020409 !important; border-right: 2px solid var(--neon-cyan);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .metrics-grid { grid-template-columns: 1fr !important; }
+}
+
+        /* =================================================================
+           CYBERPUNK TACTICAL WEATHER INTERFACE THEME - DEFINITIVE DESIGN
+           ================================================================= */
+        :root {
+            --bg-deep: #02050d;
+            --radar-box: #060e1f;
+            --neon-amber: #facc15;
+            --neon-green: #00ff66;
+            --neon-cyan: #38bdf8;
+            --neon-storm: #ff0055;
+            --text-main: #f8fafc;
+            --text-muted: #475569;
+            --glass-border: rgba(56, 189, 248, 0.15);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* CONTAINER KUU YA KIJESHI YA WEATHER SUITE */
+        .weather-container {
+            width: 100%;
+            max-width: 950px;
+            margin: 20px;
+            background: var(--radar-box);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.15);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #888;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MULTI-GRID DESIGN FOR MONITORING SENSORS */
+        .weather-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .monitor-box {
+            background: #01040a;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .monitor-box h3 {
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Canvas ya kuchora Live Pressure Waveform */
+        canvas {
+            width: 100%;
+            height: 240px;
+            background: #000205;
+            border: 1px solid rgba(56, 189, 248, 0.08);
+            border-radius: 8px;
+        }
+
+        /* Sanduku kubwa linaloonyesha kete za presha na altitude */
+        .gauge-display-center {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, rgba(250, 204, 21, 0.03) 0%, rgba(0,0,0,0) 70%);
+            padding: 10px;
+        }
+
+        .huge-number {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--neon-amber);
+            text-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+            margin: 5px 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .altitude-sub-text {
+            font-size: 16px;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .storm-status-badge {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background: rgba(0, 255, 102, 0.05);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* KITUFE KIKUBWA CHA DHAHABU CHA ACTIVE INFRASTRUCTURE BUTTON */
+        .btn-radar-trigger {
+            background: var(--neon-cyan);
+            color: #02050d;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-radar-trigger:hover {
+            background: #2ea7df;
+            box-shadow: 0 0 25px var(--neon-cyan);
+            transform: translateY(-1px);
+        }
+
+        /* Terminal Pipeline Box Layout */
+        .terminal-panel {
+            margin-top: 25px;
+            background: #000105;
+            border-left: 4px solid var(--neon-cyan);
+            border-radius: 4px;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .terminal-title {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .terminal-box {
+            height: 90px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: var(--neon-cyan);
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Hardware info bar ya chini */
+        .hardware-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+            font-size: 11px;
+            border-top: 1px dashed rgba(255,255,255,0.06);
+            padding-top: 15px;
+            text-align: left;
+        }
+
+        .hardware-stats div span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE DESIGN FOR SMARTPHONES */
+        @media (max-width: 768px) {
+            .weather-grid { grid-template-columns: 1fr; gap: 20px; }
+            .huge-number { font-size: 46px; }
+            .hardware-stats { grid-template-columns: 1fr; gap: 8px; }
+            .weather-container { padding: 15px; }
+        }
+        
+                /* =================================================================
+           RESPONSIVE REKREBISHO: SOLID ISOLATION SIDEBAR BACKGROUND FOR MOBILE
+           ================================================================= */
+        @media (max-width: 900px) {
+            #toggle-sidebar-bars { 
+                display: flex !important; 
+            }
+            
+            .sidebar-profile {
+                position: fixed;
+                left: -340px; /* Ifiche sidebar upande wa kushoto wa kioo giza */
+                top: 0;
+                width: 300px;
+                height: 100vh;
+                
+                /* Weka background ngumu na nzito kuzuia uwazi wa kioo cha nyuma! */
+                background-color: #050b1a !important; 
+                background-image: linear-gradient(145deg, #050b1a 0%, #020511 100%) !important;
+                
+                border-right: 2px solid var(--neon-cyan);
+                transition: left 0.3s ease-in-out;
+                box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+                padding: 40px 20px 20px 20px;
+            }
+            
+            /* =================================================================
+   AMRI YA KIJESHI YA KUTELEZESHA SIDEBAR (OPEN/CLOSE MATRIX)
+   ================================================================= */
+
+/* 1. Inalazimisha sidebar irudi nyuma kushoto isionekane kwenye simu */
+@media (max-width: 900px) {
+    .sidebar-profile {
+        position: fixed !important;
+        left: -340px !important; /* Inajificha nyuma ya kioo */
+        top: 0;
+        transition: left 0.3s ease-in-out !important; /* Ulaini wa kuteleza */
+    }
+
+    /* 2. AMRI YA JAVASCRIPT: Ikipata ishara hii, inalipuka na kuingia kiooni */
+    .sidebar-profile.fungua-bars {
+        left: 0 !important; /* Inafunguka live mbele ya macho */
+    }
+}
+
+            
+            
+            /* Class maalum inayowashwa na JavaScript kitalanta */
+            .sidebar-profile.fungua-bars {
+                left: 0 !important;
+            }
+            
+            /* Kadi za miradi ya nyuma zionekane vizuri kwa muonekano mseto */
+            .project-item {
+                background: #081026 !important;
+                border: 1px solid rgba(56, 189, 248, 0.2) !important;
+            }
+            
+            .main-workspace { 
+                padding-top: 80px !important; 
+            }
+            
+            .weather-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 20px; 
+            }
+            .huge-number { font-size: 46px; }
+            .hardware-stats { grid-template-columns: 1fr; gap: 8px; }
+            .weather-container { padding: 15px; }
+        }
+
+/* =================================================================
+   CYBERPUNK SOLAR CHARGE CONTROLLER SYSTEM - CSS ARCHITECTURE
+   ================================================================= */
+:root {
+    --bg-deep: #010307;
+    --radar-box: #050a14;
+    --sidebar-bg: #020409;
+    --neon-cyan: #38bdf8;
+    --neon-green: #00ff66;
+    --neon-amber: #facc15;
+    --neon-storm: #ff0055;
+    --text-main: #f8fafc;
+    --text-muted: #475569;
+    --glass-border: rgba(56, 189, 248, 0.15);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* MASTER APP MULTI-COLUMN CONTAINER */
+.app-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* =================================================================
+   UPANDE WA KUSHOTO: SIDEBAR STYLE (INDEPENDENT SCROLL ISOLATION)
+   ================================================================= */
+.sidebar-profile {
+    width: 340px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    
+    /* SCROLL ISOLATION Core: Kuscroll wasifu pekee bila kutingisha ukurasa wa nyuma */
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; 
+    
+    background-color: var(--sidebar-bg);
+    border-right: 2px solid var(--neon-cyan);
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.profile-header {
+    text-align: center;
+    border-bottom: 1px dashed var(--glass-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar-icon {
+    font-size: 50px;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px var(--neon-cyan);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.profile-header .title-tag {
+    font-size: 11px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    display: block;
+}
+
+.info-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.info-section h4 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--neon-amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    padding-bottom: 4px;
+}
+
+.info-p {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.info-p span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+}
+
+.project-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.btn-portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--neon-cyan);
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: all 0.2s;
+}
+
+.btn-portfolio-link:hover {
+    background: var(--neon-cyan);
+    color: #000;
+    box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* =================================================================
+   UPANDE WA KATIKATI: THE MAIN HARDWARE CONTROLLER PANEL
+   ================================================================= */
+.main-workspace {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.charge-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: var(--radar-box);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.08);
+    box-sizing: border-box;
+}
+
+.charge-container h1 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.suite-tag {
+    color: #888;
+    font-size: 11px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* THE 3-COLUMN METRICS GRID (VOLTS, AMPS, OHMS) */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.metric-card {
+    background: #000205;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.huge-metric {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 5px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.sub-status {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* TELEMETRY RENDER GRAPH BOX */
+.monitor-box {
+    background: #000104;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.monitor-box h3 {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    width: 100%;
+    height: 180px;
+    background: #000103;
+    border: 1px solid rgba(56, 189, 248, 0.08);
+    border-radius: 8px;
+}
+
+/* ACTIVE CONTROLLER TRIGGER BUTTON */
+.btn-charge-trigger {
+    background: var(--neon-cyan);
+    color: #010307;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.15);
+    transition: all 0.2s;
+}
+
+.btn-charge-trigger:hover {
+    background: #1d4ed8;
+    color: #fff;
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+/* COMPUTE PIPELINE TERMINAL LOGS */
+.terminal-panel {
+    margin-top: 20px;
+    background: #000103;
+    border-left: 4px solid var(--neon-cyan);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.terminal-title {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-box {
+    height: 75px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--neon-green);
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+/* SYSTEM DISCLAIMER CARD */
+.charge-disclaimer-box {
+    margin-top: 15px;
+    background: rgba(255, 0, 85, 0.02);
+    border: 1px dashed var(--neon-storm);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 10px;
+    color: #fca5a5;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.hardware-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 12px;
+    text-align: left;
+}
+
+/* MOBILE BARS RESPONSIVE OVERRIDES */
+#toggle-sidebar-bars {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 100;
+    background: var(--radar-box);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+@media (max-width: 900px) {
+    .app-wrapper { flex-direction: column; overflow-y: auto; }
+    #toggle-sidebar-bars { display: flex !important; }
+    .sidebar-profile {
+        position: fixed; left: -340px; top: 0; width: 300px; height: 100vh;
+        background-color: #020409 !important; border-right: 2px solid var(--neon-cyan);
+        transition: left 0.3s ease-in-out; box-shadow: 10px 0 40px rgba(0, 0, 0, 0.95);
+        padding: 40px 20px 20px 20px;
+    }
+    .sidebar-profile.fungua-bars { left: 0 !important; }
+    .main-workspace { padding: 15px; height: auto; padding-top: 80px !important; }
+    .metrics-grid { grid-template-columns: 1fr !important; }
+}
